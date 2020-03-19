@@ -73,5 +73,19 @@ namespace ITEA_Collections.Usings
             foreach(string a in List)
                 Console.WriteLine(a, ConsoleColor.DarkBlue);
         }
-    }
+        
+        public void Inseert(int index,object ts)
+        {
+            List.Insert(index, ts.ToString());
+        }
+        
+        public void InseertRange(int index, object[] ts)
+        {
+            for (int i = 0; i < ts.Length; i++)
+            {
+                List.Insert(index, ts[i].ToString());
+                index++;
+            }
+        }
+}
 }
