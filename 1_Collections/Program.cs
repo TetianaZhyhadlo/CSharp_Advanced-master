@@ -19,19 +19,20 @@ namespace ITEA_Collections
             //Console.WriteLine(string.Concat(str.Reverse()));
             //str.ToList().ForEach(x => Console.WriteLine(x));
 
-            var arrayL = new List<IPerson>();
+            //var arrayL = new List<IPerson>();
 
-            for (int i = 0; i < 10; i++)
-            {
-                arrayL.Add(new Person());
-            }
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    arrayL.Add(new Person());
+            //}
 
             //BaseExamples();
             //Lesson();
             // Additional();
             #region Homework
-            IBaseCollectionUsing collectionUsing = new ArrayListUsing();
+            IBaseCollectionUsing collectionUsing = new GenericListUsing();
             BaseUsingTest.Execute(ref collectionUsing);
+
             #endregion
         }
 
