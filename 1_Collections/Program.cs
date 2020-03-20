@@ -30,7 +30,7 @@ namespace ITEA_Collections
             //Lesson();
             // Additional();
             #region Homework
-            IBaseCollectionUsing collectionUsing = new GenericListUsing();
+            IBaseCollectionUsing collectionUsing = new DictionaryUsing();
             BaseUsingTest.Execute(ref collectionUsing);
 
             #endregion
@@ -251,5 +251,6 @@ namespace ITEA_Collections
             ToConsole(vs[0]);
             #endregion
         }
+        
     }
 }
