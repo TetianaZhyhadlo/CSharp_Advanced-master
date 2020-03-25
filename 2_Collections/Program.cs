@@ -162,6 +162,7 @@ namespace ITEA_Collections
                     string replacingRerson = e.NewItems[0] as string;
                     ToConsole($"{replacedPerson} replaced by {replacingRerson}", ConsoleColor.Yellow);
                     break;
+
             }
         }
 
