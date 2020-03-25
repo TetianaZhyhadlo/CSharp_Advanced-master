@@ -16,42 +16,76 @@ namespace ITEA_Collections.Usings
 
         public void Add(object ts)
         {
-            throw new NotImplementedException();
+            List.Add(ts.ToString());
         }
 
         public void AddMany(object[] ts)
         {
-            string[] str = new string[ts.Length];
-            for (int i = 0; i < ts.Length; i++)
+            if (ts is null)
+                Console.WriteLine($"Your array is null!", ConsoleColor.Red);
+            else
             {
-                str[i] = (string)ts[i];
+                foreach (object item in ts)
+                    List.Add(ts.ToString());
             }
-            List.AddRange(str);
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            List.Clear();
         }
 
         public object[] GetAll()
         {
-            throw new NotImplementedException();
+            return List.GetRange(0, List.Count).ToArray();
         }
 
         public object GetByID(int index)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return List[index];
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine(except.GetType().Name + except.Message);
+                Console.WriteLine($"there is no element with index: {index}", ConsoleColor.Red);
+                return null;
+            }
         }
 
         public void RemoveByID(int index)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List.RemoveAt(index);
+                List[index] = null;
+                Console.WriteLine($"The element index {index} is removed.");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine($"There is no element with index: {index}", ConsoleColor.Red);
+            }
         }
 
         public void ShowAll()
         {
-            throw new NotImplementedException();
+            foreach (string a in List)
+                Console.WriteLine(a, ConsoleColor.DarkBlue);
+        }
+
+        public void Inseert(int index, object ts)
+        {
+            List.Insert(index, ts.ToString());
+        }
+
+        public void InseertRange(int index, object[] ts)
+        {
+            for (int i = 0; i < ts.Length; i++)
+            {
+                List.Insert(index, ts[i].ToString());
+                index++;
+            }
         }
     }
 }

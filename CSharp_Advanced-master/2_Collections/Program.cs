@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+
 using ITEA_Collections.CustomCollections;
 using ITEA_Collections.GenericLinkedList;
-using ITEA_Collections.Generics;
-using ITEA_Collections.Generics.Testing;
 using static ITEA_Collections.Common.Extensions;
 
 namespace ITEA_Collections
@@ -15,60 +14,57 @@ namespace ITEA_Collections
         static void Main(string[] args)
         {
             #region Lesson
-            //string[] numbers = new string[] { "1", "2", "3" };
-            //UseCollection(numbers);
-            //UseList(numbers);
-            // UseWeirdYield();
+            string[] numbers = new string[] { "1", "2", "3" };
+            UseCollection(numbers);
+            UseList(numbers);
+            UseWeirdYield();
 
-            // UseEnumerator(numbers);
-            // UseObservable();
-            // UseWeirdYield();
+            UseEnumerator(numbers);
+            UseObservable();
+            UseWeirdYield();
 
-            // Dictionary<int, string> dict = new Dictionary<int, string>();
-            // for (int i = 1; i < 11; i++)
-            // {
-            //   dict.Add(i, i.ToString());
-            //}
-            //Console.WriteLine();
-            //foreach (var item in dict)
-            //{
-            //   ToConsoleLine($"{item.Value}; ");
-            //}
-            //Console.WriteLine();
-            //foreach (var item in dict)
-            // {
-            //    if (item.Key % 2 == 0)
-            //        ToConsoleLine($"{item.Value}; ");
-            // }
-            // Console.WriteLine();
-            //foreach (var item in dict)
-            // {
-            //    if (item.Key % 2 == 1)
-            //        ToConsoleLine($"{item.Value}; ");
-            //}
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+            for (int i = 1; i < 11; i++)
+            {
+                dict.Add(i, i.ToString());
+            }
+            Console.WriteLine();
+            foreach (var item in dict)
+            {
+                ToConsoleLine($"{item.Value}; ");
+            }
+            Console.WriteLine();
+            foreach (var item in dict)
+            {
+                if (item.Key % 2 == 0)
+                    ToConsoleLine($"{item.Value}; ");
+            }
+            Console.WriteLine();
+            foreach (var item in dict)
+            {
+                if (item.Key % 2 == 1)
+                    ToConsoleLine($"{item.Value}; ");
+            }
             #endregion
-            //IteaGenericLinkedList<string> iteaGeneric = new IteaGenericLinkedList<string>("First");
-            //  Console.WriteLine(iteaGeneric[0]);
-            //  iteaGeneric.Add("Second");
-            // iteaGeneric.InsertByIndex(1, "Third");
-            // ToConsole(iteaGeneric.ToString());
+            IteaGenericLinkedList<string> iteaGeneric = new IteaGenericLinkedList<string>("First");
+            Console.WriteLine(iteaGeneric[0]);
+            iteaGeneric.Add("Second");
+            iteaGeneric.InsertByIndex(1, "Third");
+            ToConsole(iteaGeneric.ToString());
 
-            // IteaCollection iteaCollection = new IteaCollection();
-            // iteaCollection.AddMany(new object[] { "qweqwe", 1, 5, 4m, 4.5, "qasd", "JKJDFB" });
-            // var strings = iteaCollection.ToEnumerableOnlyStrings(); // вызов
-            // foreach (var item in strings) // вызов 1
-            //  {
-            //      Console.WriteLine(item);
-            //  }
-            // Console.WriteLine();
-            // iteaCollection.Add("asdasd");
-            // foreach (var item in strings) // вызов 2
-            // {
-            //    Console.WriteLine(item);
-            // }
-            IBaseGenericCollectionUsing<string> collectionUsing = new IteaGenericCollection<string>();
-            string[] x = new string[] { "1", "2", "3" };
-            BaseGenericUsingTest.Execute<string>(ref collectionUsing, x);
+            IteaCollection iteaCollection = new IteaCollection();
+            iteaCollection.AddMany(new object[] { "qweqwe", 1, 5, 4m, 4.5, "qasd", "JKJDFB" });
+            var strings = iteaCollection.ToEnumerableOnlyStrings(); // вызов
+            foreach (var item in strings) // вызов 1
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
+            iteaCollection.Add("asdasd");
+            foreach (var item in strings) // вызов 2
+            {
+                Console.WriteLine(item);
+            }
         }
 
         static void UseCollection(object[] objects)

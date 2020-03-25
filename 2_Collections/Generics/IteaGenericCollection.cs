@@ -6,55 +6,84 @@ namespace ITEA_Collections.Generics
 {
     public class IteaGenericCollection<T> : IEnumerable<T>, IBaseGenericCollectionUsing<T>
     {
-        private T[] collection;
+        public List<T> collection { get; set; }
+
+        public IteaGenericCollection()
+        {
+            collection = new List<T>();
+        }
+
 
         #region IBaseGenericCollectionUsing
         public void Add(T ts)
         {
-            throw new NotImplementedException();
+            collection.Add(ts);
         }
 
         public void AddMany(T[] ts)
         {
-            throw new NotImplementedException();
+            collection.AddRange(ts);
+
         }
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            collection.Clear();
         }
 
         public T[] GetAll()
         {
-            throw new NotImplementedException();
+            return collection.GetRange(0, collection.Count).ToArray();
         }
 
         public T GetByID(int index)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return collection[index];
+            }
+            catch (Exception except)
+            {
+                Console.WriteLine(except.GetType().Name + except.Message);
+                Console.WriteLine($"there is no element with index: {index}", ConsoleColor.Red);
+                // return null;
+                return collection[0];
+            }
         }
 
         public void RemoveByID(int index)
         {
-            throw new NotImplementedException();
+            try
+            {
+                collection.RemoveAt(index);
+                //collection[index] = null;
+                Console.WriteLine($"The element index {index} is removed.");
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine($"There is no element with index: {index}", ConsoleColor.Red);
+            }
         }
 
         public void ShowAll()
         {
-            throw new NotImplementedException();
+            foreach (T a in collection)
+                Console.WriteLine($"{a}", ConsoleColor.DarkBlue);
         }
         #endregion
 
         #region IEnumerable
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            return collection.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            foreach (var item in collection)
+                yield return item;
         }
         #endregion
     }
 }
+
